@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h1>STUDENT GRADE HISTORY</h1>
+        <label for="webDevelopment">Web Development</label><br>
+        <input type="text" id="webDevelopment"><br>
+        <label for="maths">Maths</label><br>
+        <input type="text" id="maths"><br>
+        <label for="computer">Computer</label><br>
+        <input type="text" id="computer"><br>
+        <label for="physics">Physics</label><br>
+        <input type="text" id="physics"><br>
+        <button class="bt" onclick="calculatePercentage()">Show Percentage</button>
+        <h2 id="result"></h2>
+    </div>
+
+    <script>
+
+        function calculatePercentage() {
+            const webDevelopmentGrade = parseFloat(document.getElementById('webDevelopment').value) || 0;
+            const mathsGrade = parseFloat(document.getElementById('maths').value) || 0;
+            const computerGrade = parseFloat(document.getElementById('computer').value) || 0;
+            const physicsGrade = parseFloat(document.getElementById('physics').value) || 0;
+
+
+            const totalSubjects = 4;
+            const totalMarks = webDevelopmentGrade + mathsGrade + computerGrade + physicsGrade;
+            const averagePercentage = (totalMarks / (totalSubjects * 100)) * 100;
+
+            const resultElement = document.getElementById('result');
+            resultElement.textContent = `Average Percentage: ${averagePercentage.toFixed(2)}%`;
+        }
+
+    </script>
+</body>
+
+</html>
+
